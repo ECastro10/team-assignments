@@ -14,7 +14,7 @@ dirty code for chrono'''
 import random
 numlist = []
 guesses = 0
-usernum = int(input("give us a number "))
+#usernum = int(input("give us a number "))
 
 
 
@@ -24,6 +24,14 @@ def genlist():
     usage:generate a list within a range
     output: is a list with a range called numlist
     '''
+
+    def genlist():
+        numlist = list(range(1,101))
+        print(numlist)
+        return genlist
+    genlist()
+
+
 
     pass
 
@@ -36,8 +44,26 @@ def chrono():
     output: will show when the loop breaks when compguess == usernum
     we'll show the count as usernum - 1
     '''
+    numlist = list(range(1,101))
 
-    pass
+    print("The computer will try to guess your number. ")
+
+    user_num = int(input("give me a number between 1 and 100 "))
+    compguess = numlist[0]
+    counter = (user_num)
+
+    while compguess != user_num:
+        numlist.remove(numlist[0])
+        compguess = numlist[0]
+        print(numlist)
+
+    if user_num == compguess:
+        print("The computer finally guessed your number",compguess)
+        print("Since the computer started at 1, it took the computer "\
+     ,counter,"tries.")
+#chrono()
+
+    return
 
 def randi():
     '''
@@ -66,7 +92,7 @@ def randi():
     print('It took the computer {} tries'.format(guesses))
 
 
-randi()
+
 
 def main():
     '''
@@ -77,4 +103,5 @@ def main():
     the different functions.
     '''
 
-    pass
+    chrono()
+main()
