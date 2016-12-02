@@ -13,47 +13,58 @@ the count will be user_pick -1.
 dirty code for chrono'''
 import random
 numlist = []
-usernum = int(input"give us a number ")
+usernum = int(input("give us a number "))
 guesses = 0
 
 
 def genlist():
-'''
-input: none
-usage:generate a list within a range
-output: is a list with a range called numlist'''
+    '''
+    input: none
+    usage:generate a list within a range
+    output: is a list with a range called numlist
+    '''
 
     pass
 
 def chrono():
-'''
-input:none
-usage: how the computer will chronologically attempt to guess the user
-number in the list. we do this by deleting the numlist[0] and have the
-computer keep guessing numlist[0] in a loop.
-output: will show when the loop breaks when compguess == usernum
-we'll show the count as usernum - 1'''
+    '''
+    input:none
+    usage: how the computer will chronologically attempt to guess the user
+    number in the list. we do this by deleting the numlist[0] and have the
+    computer keep guessing numlist[0] in a loop.
+    output: will show when the loop breaks when compguess == usernum
+    we'll show the count as usernum - 1
+    '''
 
     pass
 
 def randi():
-'''
-input:none
-usage: we'll have the computer randomly pick a number in a list (rcomp)
-the list's range changes on whether computers choice is greater or lower
-than the usernumber.
-output: The loop breaks when the random number ==usernumber. we'll track
-count of the number of attempts it takes the comp to guess. printing
-the amount of times'''
+    '''
+    input:none
+    usage: we'll have the computer randomly pick a number in a list (rcomp)
+    the list's range changes on whether computers choice is greater or lower
+    than the usernumber.
+    output: The loop breaks when the random number ==usernumber. we'll track
+    count of the number of attempts it takes the comp to guess. printing
+    the amount of times
+    '''
+    numlist = list(range(1,101))
+    rcomp = random.choice(numlist)
+    while rcomp != usernum:
+        print('Computer guess is:',rcomp)
+        numlist.remove(rcomp)
+        rcomp = random.choice(numlist)
+    print(numlist)
 
-    pass
+randi()
 
 def main():
-'''
-input: use global variables: usernum, numlist, guesses
-usage: based on the global numbers we'll see how the computer does using
-two different strategies.
-output: we'll show the number of times it takes the comp to guess using
-the different functions.'''
+    '''
+    input: use global variables: usernum, numlist, guesses
+    usage: based on the global numbers we'll see how the computer does using
+    two different strategies.
+    output: we'll show the number of times it takes the comp to guess using
+    the different functions.
+    '''
 
     pass
