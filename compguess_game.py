@@ -50,18 +50,33 @@ def chrono():
 
     user_num = int(input("give me a number between 1 and 100 "))
     compguess = numlist[0]
-    counter = (user_num)
+    print("Computer guess is ",compguess)
 
-    while compguess != user_num:
+    counter = (user_num)
+    numlist.remove(numlist[0])
+    '''while compguess != user_num:
         numlist.remove(numlist[0])
         compguess = numlist[0]
-        print(numlist)
+        print(numlist)'''
 
-    if user_num == compguess:
-        print("The computer finally guessed your number",compguess)
-        print("Since the computer started at 1, it took the computer "\
+    row = input("Is the computer right? y or n? ")
+    while row == "n":
+        hilo = input("Is the num higher or lower? h or l? ")
+        if hilo == "h":
+            compguess = numlist[0]
+        else:
+            compguess = numlist[-1]
+
+        compguess = numlist[0]
+        numlist.remove(numlist[0])
+        print("Computer guess is ",compguess)
+        row = input("Is the computer right? y or n? ")
+
+
+    print("The computer finally guessed your number",compguess)
+    print("Since the computer started at 1, it took the computer "\
      ,counter,"tries.")
-#chrono()
+
 
     return
 
