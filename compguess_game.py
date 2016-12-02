@@ -13,8 +13,9 @@ the count will be user_pick -1.
 dirty code for chrono'''
 import random
 numlist = []
-usernum = int(input("give us a number "))
 guesses = 0
+usernum = int(input("give us a number "))
+
 
 
 def genlist():
@@ -48,13 +49,22 @@ def randi():
     count of the number of attempts it takes the comp to guess. printing
     the amount of times
     '''
+    guesses = 0
     numlist = list(range(1,101))
     rcomp = random.choice(numlist)
-    while rcomp != usernum:
-        print('Computer guess is:',rcomp)
-        numlist.remove(rcomp)
+    numlist.remove(rcomp)
+    guesses += 1
+    print('Computer guess is:',rcomp)
+    right_or_wrong = input('Is the computer right? (y)es or (n)o? > ')
+    while right_or_wrong == 'n':
         rcomp = random.choice(numlist)
-    print(numlist)
+        numlist.remove(rcomp)
+        print('Computer guess is:',rcomp)
+        guesses += 1
+        right_or_wrong = input('Is the computer right? (y)es or (n)o? > ')
+    print('The computer guessed your number which is',usernum)
+    print('It took the computer {} tries'.format(guesses))
+
 
 randi()
 
